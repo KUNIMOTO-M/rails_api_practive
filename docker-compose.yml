@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: ./docker/db.dockerfile
-    container_name: rails_mysql
+    container_name: rails_mysql_2
     ports:
       - "3306:3306"
     environment:
@@ -18,9 +18,9 @@ services:
     build:
       context: .
       dockerfile: ./docker/web.dockerfile
-    container_name: rails_web
-    # volumes:
-    #   - ./sample/:/usr/src/sample/
+    container_name: rails_web_2
+    volumes:
+      - ./rails_api_practice/:/usr/src/rails_api_practice/
     ports:
       - "3000:3000"
     environment:
